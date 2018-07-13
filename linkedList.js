@@ -1,6 +1,6 @@
 // 链表
 
-function LinkedList () {
+export default function LinkedList () {
   let Node = function (element) {
     this.element = element
     this.netxt = null
@@ -68,13 +68,45 @@ function LinkedList () {
       return null
     }
   }
-  this.remove = function (element) {}
-  this.indexOf = function (element) {}
-  this.isEmpty = function () {}
-  this.size = function () {}
-  this.getHead = function () {}
-  this.toString = function () {}
-  this.print = function () {}
+  this.remove = function (element) {
+    let index = this.indexOf(element);
+    return this.removeAt(index);
+  }
+
+  this.indexOf = function (element) {
+    let current = head, //{1}
+    index = -1;
+    while (current) { //{2}
+      if (element === current.element) {
+          return index; //{3}
+      }
+      index++; //{4}
+      current = current.next; //{5}
+    }
+    return -1;
+  }
+
+  this.isEmpty = function () {
+    return length === 0;
+  }
+
+  this.size = function () {
+    return length;
+  }
+
+  this.getHead = function () {
+    return head;
+  }
+
+  this.toString = function () {
+    let current = head, //{1}
+    string = ''; //{2}
+    while (current) { //{3}
+      string += current.element +(current.next ? 'n' : '');//{4}
+      current = current.next; //{5}
+    }
+    return string; //{6}
+  }
 }
 let list = new LinkedList ()
 list.append(15);
