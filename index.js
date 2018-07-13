@@ -2,4 +2,5 @@
 // import queue from './queue'
 // import linkedList from './linkedList'
 // import set from './set'
-import hashTable from './hashTable'
+// import hashTable from './hashTable'
+import tree from './tree.js'
