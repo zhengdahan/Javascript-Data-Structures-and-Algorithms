@@ -3,4 +3,6 @@
 // import linkedList from './linkedList'
 // import set from './set'
 // import hashTable from './hashTable'
-import tree from './tree.js'
+// import tree from './tree.js'
+// import dictionary from './dictionary'
+import graph from './graph'

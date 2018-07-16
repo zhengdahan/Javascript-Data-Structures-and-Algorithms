@@ -104,6 +104,65 @@ function BinarySearchTree () {
     }
     return null
   }
+
+  // 搜索特定的值
+  this.search = function () {
+    return searchNode(root, key)
+  }
+  var searchNode = function (node, key) {
+    if (node !== null) {
+      return false
+    }
+    if (key < node.key) {
+      return searchNode(node.left, key)
+    } else if (key > node.key) {
+      return searchNode (node.right, key)
+    } else {
+      return true
+    }
+  }
+
+  // 移除节点
+  this.remove = function (key) {
+    root = removeNode(root, key)
+  }
+  var removeNode = function (node, key) {
+    if (node === null) {
+      return null
+    }
+    if (key < node.key) {
+      node.left = removeNode(node.left, key)
+      return node
+    } else if (key > node.key) {
+      node.right > removeNode(node.right, key)
+      return node
+    } else { // 键等于node.key
+      //第一种情况 —— 一个叶节点
+      if (node.left === null && node.right === null) {
+        node = null;
+        return node
+      }
+      // 第二种情况 —— 只有一个字节点的节点
+      if (node.left === null) {
+        node = node.right;
+        return node
+      } else if (node.right === null) {
+        node = node.left
+        return node
+      }
+      // 第三种情况 —— 一个有两个字节点的节点
+      var findMinNode = function (node) {
+        while (node && node.left !== null) {
+          node = node.left
+        }
+        return node
+      }
+      var aux = findMinNode(node.right); //{18}
+      node.key = aux.key; //{19}
+      node.right = removeNode(node.right, aux.key); //{20}
+      return node; //{21}
+    }
+  }
 }
 
 function printNode (value) {

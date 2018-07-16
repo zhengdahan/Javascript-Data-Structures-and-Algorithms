@@ -1,6 +1,6 @@
 // 队列
 
-let Queue = (function () {
+export let Queue = (function () {
   const items = new WeakMap();
   class Queue2 {
     constructor() {
@@ -20,8 +20,11 @@ let Queue = (function () {
       return q.length
       return 
     }
+    isEmpty () {
+      return items.length == 0;
+    };
   }
-  return Queue;
+  return Queue2;
 })();
 
 //优先级队列

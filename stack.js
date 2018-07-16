@@ -2,7 +2,7 @@
 
 let _items = Symbol()
 
-class Stack {
+export class Stack {
   constructor () {
     this[_items] = []
   }
@@ -42,5 +42,4 @@ let divideBy2 = (num) => {
   }
   return binaryString
 }
-console.log(divideBy2(100))
 
